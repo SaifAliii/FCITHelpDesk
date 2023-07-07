@@ -24,4 +24,35 @@
     <div class="explore-btn-container">
         <a href="Courses" class="explore-btn">Explore us!</a>
     </div>
+    
 </div>
+<div id="chat-container">
+    <div id="chat-header">
+        <h3>Chat</h3>
+        <button id="minimize-btn" onclick="toggleChat()">-</button>
+    </div>
+    <div id="chat-body">
+        <div id="chat-messages">
+            <!-- Your chat messages go here -->
+        </div>
+        <div id="chat-input">
+            <input type="text" placeholder="Type your message">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleChat() {
+        var chatBody = document.getElementById("chat-body");
+        var minimizeBtn = document.getElementById("minimize-btn");
+
+        if (chatBody.style.display === "none") {
+            chatBody.style.display = "block";
+            minimizeBtn.textContent = "-";
+        } else {
+            chatBody.style.display = "none";
+            minimizeBtn.textContent = "+";
+        }
+    }
+
+</script>
