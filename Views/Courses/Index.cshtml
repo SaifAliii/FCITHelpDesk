@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Courses";
+}
+<!-------------stylesheet ------------------>
+<link rel="stylesheet"
+      type="text/css"
+      href="~/css/site.css"
+      media="only screen and (min-width:901px)" />
+    <div class="coursesNote">
+        <p>
+            Courses Available
+        </p>
+
+        <p></p>
+    </div>
+    <script>
+        let is_admin = "@ViewBag.user.IsAdmin";
+        if (is_admin === "Y") {
+            document.getElementById("adminPanel").style.display = "block";
+        }
+    </script>
+
+    <div class="courses-container">
+        <div class="courses-container-sub">
+            @for (var i = 0; i < @ViewBag.Courses.Count; i++)
+            {
+                <span class="course-item"><a href="Course/?courseId=@i" class="course">@ViewBag.Courses[i]</a></span>
+            }
+        </div>
+    </div>

@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "Contribute";
+}
+
+    <!-------------stylesheet ------------------>
+<link rel="stylesheet"
+        type="text/css"
+        href="~/css/contribute.css"
+        media="only screen and (min-width:901px)" />
+<!-- sign up form -->
+<div class="center-items">
+
+    <form asp_controller="Contribution" asp_action="Index" class="formSignUp w-50 container-fluid formContact" id="contributionForm" method="post" enctype="multipart/form-data">
+
+        <!-- login-logo theeta.com box -->
+
+
+        <div class="row p-4 border border-1 rounded-1">
+
+            <!-- name & reason container -->
+            <!-- input box-1 AUTHOR NAME -->
+
+            <div>
+                <!-- INPUT author_name-->
+                <h2 style="text-align:center;color:white">Contribute Here!</h2>
+            </div>
+
+            <div class="input-group shadow p-1 rounded bg-dark">
+                <span class="input-group-text col-md-">
+                    <i class="far fa-book-reader"></i>
+                </span>
+
+                <!-- INPUT Title -->
+                <input type="text" aria-label="Title" id="title" name="title" class="form-control" placeholder="Title( e-g chapter-x)" required>
+            </div>
+
+
+            <!-- SELECT Course reason-->
+
+            <div class="input-group my-0 mb-0 shadow p-1 rounded bg-dark">
+                <span class="input-group-text">
+                    <i class="fas fa-book"></i>
+                </span>
+
+                <label class="input-group-text col-md-5" for="selectCourse">
+                    For course
+                </label>
+
+                <!-- select options -->
+                <select class="form-select" id="selectCourse" name="selectCourse" required>
+                    @for (int i = 0; i < ViewBag.Courses.Count; i++)
+                    {
+                        <option values="@i">@ViewBag.Courses[i]</option>
+                    }
+                </select>
+            </div>
+
+
+            <div class="input-group my-0 mb-0 shadow p-1 rounded bg-dark">
+                <span class="input-group-text">
+                    <i class="fas fa-smile"></i>
+                </span>
+
+                <label class="input-group-text col-md-5" for="selectContentType">
+                    contribute a/an
+                </label>
+
+
+
+
+                <!-- select options -->
+                <select name="theItems" onchange="otherSelect()" class="form-select" id="otherBox" required>
+                    <option selected>Choose...</option>
+                    <option selected value="PDFNotes">PDF Notes</option>
+                    <option value="PDFBooks">PDF Books</option>
+                    <option value="Link">Drive or other Link</option>
+                    <option value="Image">Image</option>
+                </select>
+            </div>
+
+            <!-- PASTE LINK -->
+
+            <div class="input-group shadow p-1 rounded bg-dark" name="contrib_link_input" id="contrib_link_input" style="visibility:;">
+                <span class="input-group-text col-md-">
+                    <i class="far fa-link"></i>
+                </span>
+
+
+                <input type="text" name="contrib_link" id="contrib_link" aria-label="Title" class="form-control" placeholder="Paste Your Link Here...">
+            </div>
+
+            <!-- UPLOAD  -->
+            <div class="input-group my-0 mb-0 shadow p-1 rounded bg-dark" id="contrib_upload_input" style="visibility:;">
+                <span class="input-group-text">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <input class="form-control form-control" id="formFileLg" type="file" name="contribution_file" />
+            </div>
+
+
+
+            <div class="form-group form-check py-1 my-2">
+
+                <label class="form-check-label my-0 text-center text-warning bg-dark px-1 py-1 tccontribue rounded"
+                        for="exampleCheck1">
+                    Will be added to the courses list soon :)
+                    @ViewBag.Message
+                </label>
+            </div>
+
+            <!-- send -->
+            <div class="form-group form-check text-center my-0">
+
+                <!-- send message button -->
+                <button type="submit" class="loginbtn" id="hover-btn-contact">Contribute</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    let is_admin = "@ViewBag.user.IsAdmin";
+    if (is_admin === "Y") {
+        document.getElementById("adminPanel").style.display = "block";
+    }
+</script>
+
+<script type="text/javascript" src="~/js/main.js"></script>
+<script type="text/javascript" src="~/js/particles.js"></script>
+<script type="text/javascript" src="~/js/app.js"></script>
+</html>
+

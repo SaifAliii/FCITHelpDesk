@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<!-------------stylesheet ------------------>
+<link rel="stylesheet"
+    type="text/css"
+    href="~/css/site.css"
+    media="only screen and (min-width:901px)" />
+<div class="center-items-container">
+    <div class="tagline-container">
+        <div class="tagline">
+            Welcome
+            <span class="username-tagline">&nbsp; @ViewBag.user.Fname</span>,
+            to FCIT HELP DESK
+        </div>
+    </div>
+    <div class="introlines-container">
+        <p class="introlines">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+            debitis voluptatibus omnis autem. Quam laborum consectetur aliquam
+            id eum! Provident!
+        </p>
+    </div>
+    <div class="explore-btn-container">
+        <a href="Courses" class="explore-btn">Explore us!</a>
+    </div>
+</div>

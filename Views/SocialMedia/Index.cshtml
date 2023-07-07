@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Social Media";
+}
+
+<link rel="stylesheet"
+      type="text/css"
+      href="~/css/welcome.css"
+      media="only screen and (min-width:901px)" />
+<link rel="stylesheet"
+      type="text/css"
+      href="~/css/updates.css"
+      media="only screen and (min-width:901px)" />
+    <!--------------------------HEADER-------------------------------->
+    <div class="team-center-items">
+        <div class="team-head-container">
+        <p class="team-head">Social Media Updates & Posts!</p>
+        </div>
+
+        <div class="card-row-head">Tweets by Education Officials</div>
+        <div class="team-cards-container">
+        <div class="tm-card">
+            <a
+            class="twitter-timeline"
+            data-lang="en"
+            data-width="500"
+            data-height="300"
+            data-dnt="true"
+            data-theme="dark"
+            class="tm-card"
+            href="https://twitter.com/PUCITOfficial?ref_src=twsrc%5Etfw"
+            >Tweets by PUCITOfficial</a
+            >
+            <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+            ></script>
+        </div>
+
+        <div class="tm-card">
+            <a
+            class="twitter-timeline"
+            data-lang="en"
+            data-width="500"
+            data-height="300"
+            data-dnt="true"
+            data-theme="dark"
+            href="https://twitter.com/PU_OfficialPK?ref_src=twsrc%5Etfw"
+            >Tweets by PU_OfficialPK</a
+            >
+            <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+            ></script>
+        </div>
+
+        <div class="tm-card">
+            <a
+            class="twitter-timeline"
+            data-lang="en"
+            data-width="500"
+            data-height="300"
+            data-dnt="true"
+            data-theme="dark"
+            href="https://twitter.com/hecpkofficial?ref_src=twsrc%5Etfw"
+            >Tweets by hecpkofficial</a
+            >
+            <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+            ></script>
+        </div>
+        </div>
+
+        <!--
+        <div class="card-row-head">Recent Posts By FCIT Societies</div>
+        -->
+
+
+    </div>
+
+	<script>
+		let is_admin  = "@ViewBag.user.IsAdmin";
+		if (is_admin === "Y") {
+			document.getElementById("adminPanel").style.display = "block";
+		}
+	</script>

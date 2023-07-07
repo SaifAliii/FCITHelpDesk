@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Team";
+}
+<!-------------stylesheet ------------------>
+<link rel="stylesheet"
+      type="text/css"
+      href="~/css/site.css"
+      media="only screen and (min-width:901px)" />
+<div class="team-center-items">
+    <div class="team-head-container">
+        <p class="team-head">The Us!</p>
+    </div>
+
+    <div class="team-cards-container">
+        <div class="tm-card">
+            <div class="tm-avatar-container">
+                <img src="images/svgs/avatar-m.png" alt="" srcset="" />
+            </div>
+
+            <div class="tm-skill">
+                <p class="tm-skill-text">Web Developer.</p>
+            </div>
+            <div class="tm-name">
+                <p class="tm-name-text">Saif Ali</p>
+            </div>
+            <div class="tm-about">
+                <p class="tm-about-text">Student at PUCIT ‘24.</p>
+            </div>
+            <div class="tm-social-media-links">
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/linkedin.svg"
+                    alt=""
+                    class="tm-sm-github"
+                /></a>
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/github.svg"
+                    alt=""
+                    class="tm-sm-linkedin"
+                /></a>
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/googleplus.svg"
+                    alt=""
+                    class="tm-sm-gmail"
+                /></a>
+            </div>
+        </div>
+
+        <div class="tm-card">
+            <div class="tm-avatar-container">
+                <img src="images/svgs/avatar-m.png" alt="" srcset="" />
+            </div>
+
+            <div class="tm-skill">
+                <p class="tm-skill-text">Web Developer</p>
+            </div>
+            <div class="tm-name">
+                <p class="tm-name-text">Abdullah Shahid</p>
+            </div>
+            <div class="tm-about">
+                <p class="tm-about-text">Student at PUCIT ‘24.</p>
+            </div>
+            <div class="tm-social-media-links">
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/linkedin.svg"
+                    alt=""
+                    class="tm-sm-github"
+                /></a>
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/github.svg"
+                    alt=""
+                    class="tm-sm-linkedin"
+                /></a>
+                <a href="#" class="sm-link"
+                    ><img
+                    src="images/svgs/socialmedia/googleplus.svg"
+                    alt=""
+                    class="tm-sm-gmail"
+                /></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	let is_admin  = "@ViewBag.user.IsAdmin";
+	if (is_admin === "Y") {
+		document.getElementById("adminPanel").style.display = "block";
+	}
+</script>

@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = ViewBag.courseName;
+}
+<!-------------stylesheet ------------------>
+<link rel="stylesheet"
+        type="text/css"
+        href="~/css/subjects.css"
+        media="only screen and (min-width:901px)" />
+
+<div id="particles-js">
+    <div class="wrapperrr">
+        <div class="mainCourse">
+
+            <div class="coursesNote">
+                <p style="color:white;text-align:center;font-size:25px;margin-top:50px">
+                    @ViewBag.courseName
+                </p>
+
+                <p></p>
+            </div>
+            <script>
+                let is_admin = "@ViewBag.user.IsAdmin";
+                if (is_admin === "Y") {
+                    document.getElementById("adminPanel").style.display = "block";
+                }
+            </script>
+            @{
+                if (ViewBag.contribs.Count == 0)
+                {
+                    <h3 style="color:white;text-align:center">No Material Available Yet :/</h3>
+                }
+                else
+                {
+                    <div class="courses-container">
+                        <div class="courses-container-sub">
+                            <ul>
+                                @for (var i = 0; i < ViewBag.contribs.Count; i++)
+                                {
+                                    <li>
+                                        <div class="upper">
+                                            <p class="crsTitle">@ViewBag.contribs[i].title</p>
+                                            <p class="crsAuthor">@ViewBag.contribs[i].type</p>
+                                            <p class="ContributorNameUpper">Contributed By @ViewBag.contribs[i].fname </p>
+                                            <p class="stars">⭐⭐⭐⭐</p>
+                                        </div>
+                                        <div class="lower text-center">
+                                            <a href="/Course/ShowMedia/?path=@ViewBag.contribs[i].path" class="lowerA">Preview</a>
+                                            <a href="/Course/DownloadMedia/?path=@ViewBag.contribs[i].path" class="lowerB">Download</a>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
