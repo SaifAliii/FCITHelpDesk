@@ -13,35 +13,23 @@ namespace WebApplication1.Controllers
             SqlConnection conn = new(Helper.connectionString);
             try
             {
-                conn.Open();
-                string query = "select * from Users";
-                SqlDataAdapter adapter = new(query, conn);
-
-                SqlCommand cmd = new(query, conn);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                List<User> users = new();
-
-                while (dr.Read())
+                CmsContext cx = new CmsContext();
+                List<User> users = cx.Users.ToList();
+                for(int i = 0; i < users.Count; i++)
                 {
                     User user = new()
                     {
-                        Id = Convert.ToInt32(dr["id"]),
-                        Fname =     dr["fname"].ToString().Trim(),
-                        Lname = dr["lname"].ToString().Trim(),
-                        Email = dr["email"].ToString().Trim(),
-                        Password = dr["password"].ToString().Trim(),
-                        IsAdmin = dr["is_admin"].ToString().Trim()
+                        Id = Convert.ToInt32(users[i].Id),
+                        Fname = users[i].Fname.ToString().Trim(),
+                        Lname = users[i].Lname.ToString().Trim(),
+                        Email = users[i].Email.ToString().Trim(),
+                        Password = users[i].Password.ToString().Trim(),
+                        IsAdmin = users[i].IsAdmin.ToString().Trim()
                     };
-
-                    users.Add(user);
                 }
-
-                dr.Close();
                 return users;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

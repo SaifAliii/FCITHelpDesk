@@ -38,14 +38,14 @@
                                 {
                                     <li>
                                         <div class="upper">
-                                            <p class="crsTitle">@ViewBag.contribs[i].title</p>
-                                            <p class="crsAuthor">@ViewBag.contribs[i].type</p>
-                                            <p class="ContributorNameUpper">Contributed By @ViewBag.contribs[i].fname </p>
+                                            <p class="crsTitle">@ViewBag.contribs[i].Title</p>
+                                            <p class="crsAuthor">@ViewBag.contribs[i].Type</p>
+                                            <p class="ContributorNameUpper">Contributed By @ViewBag.contribs[i].Fname </p>
                                             <p class="stars">⭐⭐⭐⭐</p>
                                         </div>
                                         <div class="lower text-center">
-                                            <a href="/Course/ShowMedia/?path=@ViewBag.contribs[i].path" class="lowerA">Preview</a>
-                                            <a href="/Course/DownloadMedia/?path=@ViewBag.contribs[i].path" class="lowerB">Download</a>
+                                            <a href="/Course/ShowMedia/?path=@ViewBag.contribs[i].Path" class="lowerA">Preview</a>
+                                            <a href="/Course/DownloadMedia/?path=@ViewBag.contribs[i].Path" class="lowerB">Download</a>
                                         </div>
                                     </li>
                                 }

@@ -5,9 +5,9 @@ namespace WebApplication1.Controllers
 {
     public class Helper
     {
-        public static string connectionString = @"Data Source=ANC;Initial Catalog=fcithelpdesk;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CMS;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
         //public static User? loggedInUser = null;
-        public static User? loggedInUser = new() { Id = 1, Fname = "Muhammad", Lname = "Ans", Email = "BITF19M024", IsAdmin = "Y", Password = "123456" };
+        public static User? loggedInUser = new() { Id = 1, Fname = "Saif", Lname = "Ali", Email = "BSEF20M026", IsAdmin = "N", Password = "123456" };
         public static List<string> Courses = new List<string>()
             {
                 "Programming Fundamentals",

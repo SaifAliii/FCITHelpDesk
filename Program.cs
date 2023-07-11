@@ -6,6 +6,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 var app = builder.Build();
 
+/*//Add session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+app.UseSession();*/
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

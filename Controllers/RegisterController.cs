@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public void RegisterUser(IFormCollection form)
         {
+            Console.Write("*************In the Register Controller***************");
             User user = new User();
             string fname = form["fname"].ToString().Trim();
             string lname = form["lname"].ToString().Trim();
@@ -37,43 +38,8 @@ namespace WebApplication1.Controllers
             user.IsAdmin = is_admin.ToString();
             CmsContext cx = new CmsContext();
             cx.Users.Add(user);
-            // inserting into the database...
-            /*SqlConnection conn = new(Helper.connectionString);
-            try
-            {
-                conn.Open();
-
-                Console.WriteLine(123);
-                // insert into user table
-                string query = @"INSERT INTO users(fname, lname, email, password, is_admin) VALUES(@fname, @lname, @email, @password, @is_admin)";
-                Console.WriteLine(456);
-
-
-                SqlDataAdapter adapter = new (query, conn);
-
-                SqlCommand cmd = new(query, conn);
-
-
-                cmd.Parameters.AddWithValue("@fname", fname);
-                cmd.Parameters.AddWithValue("@lname", lname);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@password", password);
-                cmd.Parameters.AddWithValue("@is_admin", is_admin);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-            }
-            catch (SqlException ex)
-            {
-
-                Console.WriteLine(ex.Message);
-                throw ex;
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-            }*/
+            cx.SaveChanges();
+            Console.Write("*************Saved in DataBase i.e. User Registered***************");
             Response.Redirect("/Login");
         }
     }

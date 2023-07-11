@@ -92,38 +92,27 @@ namespace WebApplication1.Controllers
         [NonAction]
         public void AddContribution(string? fname, string? lname, string title, string path, string course, string type, string link, DateTime date)
         {
-            SqlConnection conn = new(Helper.connectionString);
+            Contribution contrib = new Contribution();
+            contrib.Fname = fname;
+            contrib.Lname = lname;
+            contrib.Title = title;
+            contrib.Path = path;
+            contrib.Course = course;
+            contrib.Type = type;
+            contrib.Link = link;
+            contrib.Date = date;
+            CmsContext cx = new CmsContext();
             try
             {
-                conn.Open();
-
-                string query = @"INSERT INTO contribution (fname, lname, title, path, course, type, link, date) VALUES(@fname, @lname, @title, @path, @course, @type, @link, @date)";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@fname", fname);
-                cmd.Parameters.AddWithValue("@lname", lname);
-                cmd.Parameters.AddWithValue("@title", title);
-                cmd.Parameters.AddWithValue("@path", path);
-                cmd.Parameters.AddWithValue("@course", course);
-                cmd.Parameters.AddWithValue("@type", type);
-                cmd.Parameters.AddWithValue("@link", link);
-                cmd.Parameters.AddWithValue("@date", date);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
+                cx.Contributions.Add(contrib);
+                cx.SaveChanges();
             }
-            catch (SqlException ex)
+            catch(Exception ex) 
             {
                 throw ex;
             }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-            }
+            
+            Console.WriteLine("***********Contribution Added******************");
         }
 
 
